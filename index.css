@@ -275,6 +275,7 @@
      border-radius: 20px;
  }
 
+ /*dropdown menu css starts from here*/
  .profile-dropdown {
      position: relative;
      cursor: pointer;
@@ -318,3 +319,70 @@
      background-color: black;
      color: white;
  }
+
+ /*dropdown menu css ends here*/
+
+
+ /* login an signup css  starts from here */
+
+ form {
+     width: 350px;
+     margin: 50px auto;
+     padding: 30px;
+     background-color: white;
+     border-radius: 10px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+ }
+
+ h2 {
+     text-align: center;
+     margin-top: 40px;
+     font-size: 28px;
+ }
+
+ form input {
+     width: 100%;
+     box-sizing: border-box;
+     padding: 12px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     font-size: 15px;
+     outline: none;
+ }
+
+ form input:focus {
+     border-color: black;
+ }
+
+ form button {
+     width: 100%;
+     padding: 12px;
+     background-color: black;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     font-size: 16px;
+     cursor: pointer;
+ }
+
+ form button:hover {
+     background-color: #333;
+ }
+
+ p {
+     text-align: center;
+     font-size: 14px;
+ }
+
+ p a {
+     color: black;
+     font-weight: bold;
+     text-decoration: none;
+ }
+
+ p a:hover {
+     text-decoration: underline;
+ }
+
+ /* login an signup css  ends  here */
