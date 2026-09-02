@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trends Wear Wishlist</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color: #222;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        /* TITLE */
+        .wishlist-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .wishlist-title h1 {
+            font-size: 36px;
+        }
+
+        .wishlist-title p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .continue {
+            color: #b5656b;
+            text-decoration: none;
+        }
+
+        /* WISHLIST GRID */
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* REMOVE BUTTON */
+        .remove {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            color: #777;
+            font-size: 18px;
+        }
+
+        /* PRODUCT DETAILS */
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 17px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+
+        /* ADD TO CART */
+        .add-cart {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 5px;
+            background: #b5656b;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .add-cart:hover {
+            background: #984f55;
+        }
+
+        /* EMPTY WISHLIST */
+        .empty-wishlist {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .empty-wishlist .heart {
+            font-size: 50px;
+            color: #b5656b;
+            margin-bottom: 20px;
+        }
+
+        .empty-wishlist h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty-wishlist p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            background: #b5656b;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* BENEFITS */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 70px;
+            padding: 30px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .benefit {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .benefit h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- TITLE -->
+        <div class="wishlist-title">
+
+            <div>
+                <h1>My Wishlist</h1>
+
+                <p>
+                    3 items saved for later
+                </p>
+            </div>
+
+            <a href="./index.html" class="continue">
+                ← Continue Shopping
+            </a>
+
+        </div>
+
+
+        <!-- WISHLIST PRODUCTS -->
+        <div class="wishlist-grid">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card">
+
+                <button class="remove">
+                    ♡
+                </button>
+
+                <img class="product-image"
+                    src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
+                    alt="Floral Cotton Dress">
+
+                <div class="product-info">
+
+                    <h2>Floral Cotton Dress</h2>
+
+                    <p>
+                        Size: M &nbsp; | &nbsp; Color: Pink
+                    </p>
+
+                    <div class="price">
+                        ₹1,299
+                        <span class="old-price">
+                            ₹1,599
+                        </span>
+                    </div>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card">
+
+                <button class="remove">
+                    ♡
+                </button>
+
+                <img class="product-image"
+                    src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80"
+                    alt="Linen Shirt">
+
+                <div class="product-info">
+
+                    <h2>Linen Slim Fit Shirt</h2>
+
+                    <p>
+                        Size: L &nbsp; | &nbsp; Color: Green
+                    </p>
+
+                    <div class="price">
+                        ₹999
+                        <span class="old-price">
+                            ₹1,299
+                        </span>
+                    </div>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card">
+
+                <button class="remove">
+                    ♡
+                </button>
+
+                <img class="product-image"
+                    src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80"
+                    alt="Classic Blue Jeans">
+
+                <div class="product-info">
+
+                    <h2>Classic Blue Jeans</h2>
+
+                    <p>
+                        Size: 32 &nbsp; | &nbsp; Color: Blue
+                    </p>
+
+                    <div class="price">
+                        ₹1,499
+                        <span class="old-price">
+                            ₹1,799
+                        </span>
+                    </div>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BENEFITS -->
+        <div class="benefits">
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🛡️
+                </div>
+
+                <h3>Secure Checkout</h3>
+
+                <p>
+                    Your information is safe with us
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <h3>Free Shipping</h3>
+
+                <p>
+                    On prepaid orders above ₹999
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ↻
+                </div>
+
+                <h3>Easy Returns</h3>
+
+                <p>
+                    15 days return policy
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ☎
+                </div>
+
+                <h3>Customer Support</h3>
+
+                <p>
+                    We're here to help
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+</body>
+
+</html>
+```
