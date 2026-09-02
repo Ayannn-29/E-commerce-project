@@ -2,7 +2,6 @@
 
 
 
- /* Form container */
 form {
     width: 350px;
     margin: 50px auto;
@@ -12,14 +11,12 @@ form {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Heading */
 h2 {
     text-align: center;
     margin-top: 40px;
     font-size: 28px;
 }
 
-/* Input fields */
 form input {
     width: 100%;
     box-sizing: border-box;
@@ -31,12 +28,10 @@ form input {
     outline: none;
 }
 
-/* Input focus */
 form input:focus {
     border-color: black;
 }
 
-/* Login / Sign Up button */
 form button {
     width: 100%;
     padding: 12px;
@@ -48,18 +43,15 @@ form button {
     cursor: pointer;
 }
 
-/* Button hover */
 form button:hover {
     background-color: #333;
 }
 
-/* Text below form */
 p {
     text-align: center;
     font-size: 14px;
 }
 
-/* Sign Up / Login link */
 p a {
     color: black;
     font-weight: bold;
