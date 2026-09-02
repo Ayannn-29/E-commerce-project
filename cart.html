@@ -16,7 +16,7 @@
     }
 
     body {
-      background: #fff;
+      background:whitesmoke;
       color: #222;
     }
 
@@ -58,8 +58,8 @@
 
     /* CART BOX */
     .cart-box {
-      border: 1px solid #eee;
-      border-radius: 10px;
+      border: 1px solid black;
+      border-radius: 15px;
       overflow: hidden;
     }
 
@@ -72,10 +72,13 @@
     }
 
     .cart-header {
-      background: #fafafa;
+      background-color: rgb(179, 175, 175);
       font-size: 13px;
       font-weight: bold;
-      color: #555;
+      color: black;
+      border: 1px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
 
     .cart-item {
@@ -151,31 +154,44 @@
     .coupon {
       margin-top: 20px;
       padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 10px;
+      border: 1px solid black;
+      border-radius: 15px;
       display: flex;
       gap: 10px;
+      background: white;
+
     }
 
     .coupon input {
       flex: 1;
       padding: 13px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      border: 1px solid black;
+      border-radius: 15px;
       outline: none;
+      background: rgb(179, 175, 175);
+      color:black;
+      font-size: 15px;
+      font-family: Arial;
     }
 
     .btn {
-      border: none;
-      background: #b5656b;
+      border: 1px solid black;
+      background:rgb(179, 175, 175);
       color: white;
       padding: 13px 25px;
-      border-radius: 5px;
+      border-radius: 15px;
+      color: black;
+      font-size: 15px;
+      font-family: Arial;
+    }
+     .btn:hover {
+      background-color:black;
+      color: white;
     }
 
     /* ORDER SUMMARY */
     .summary {
-      border: 1px solid #eee;
+      border: 1px solid black;
       border-radius: 10px;
       padding: 25px;
       height: fit-content;
@@ -208,23 +224,33 @@
       width: 100%;
       margin-top: 20px;
       padding: 15px;
-      border: none;
-      border-radius: 5px;
-      background: #b5656b;
+      border: 1px solid black;
+      border-radius: 10px;
+      background: rgb(179, 175, 175);
+      color: black;
+      font-size: 18px;
+      font-family: Arial;
+    }
+    .checkout:hover {
+      background-color:black;
       color: white;
-      font-size: 16px;
     }
 
     .buy {
       width: 100%;
       margin-top: 10px;
       padding: 14px;
-      background: white;
-      border: 1px solid #b5656b;
-      color: #b5656b;
-      border-radius: 5px;
+      background: rgb(179, 175, 175);
+      border: 1px solid black;
+      color: black;
+      border-radius: 10px;
+      font-family: Arial;
+      font-size: 18px;
     }
-
+        .buy:hover {
+      background-color:black;
+      color: white;
+    }
     .payment {
       text-align: center;
       margin-top: 25px;
@@ -312,14 +338,14 @@
 
             <div class="product">
 
-              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=300&q=80">
+              <img src=./public/images/new-s1.jpg>
 
               <div class="product-info">
 
-                <h3>Floral Cotton Dress</h3>
+                <h3>Embroldered Print Shirt</h3>
 
                 <p>
-                  Size: M | Color: Pink
+                  Size: M | Color: Brown
                 </p>
 
                 <button class="wishlist">
@@ -330,7 +356,7 @@
 
             </div>
 
-            <div>₹1,299</div>
+            <div>$199</div>
 
             <div>
 
@@ -344,7 +370,7 @@
 
             <div>
 
-              <strong>₹1,299</strong>
+              <strong>$199</strong>
 
               <button class="delete">
                 🗑
@@ -360,14 +386,14 @@
 
             <div class="product">
 
-              <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=300&q=80">
+              <img src=./public/images/s3.png>
 
               <div class="product-info">
 
-                <h3>Linen Slim Fit Shirt</h3>
+                <h3>Blurred Print T-Shirt</h3>
 
                 <p>
-                  Size: L | Color: Green
+                  Size: L | Color: Yellow
                 </p>
 
                 <button class="wishlist">
@@ -378,7 +404,7 @@
 
             </div>
 
-            <div>₹999</div>
+            <div>$75</div>
 
             <div>
 
@@ -392,7 +418,7 @@
 
             <div>
 
-              <strong>₹999</strong>
+              <strong>$75</strong>
 
               <button class="delete">
                 🗑
@@ -408,11 +434,11 @@
 
             <div class="product">
 
-              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=300&q=80">
+              <img src=./public/images/j-2.png>
 
               <div class="product-info">
 
-                <h3>Classic Blue Jeans</h3>
+                <h3>straight fit jeans </h3>
 
                 <p>
                   Size: 32 | Color: Blue
@@ -426,7 +452,7 @@
 
             </div>
 
-            <div>₹1,499</div>
+            <div>$150</div>
 
             <div>
 
@@ -440,7 +466,7 @@
 
             <div>
 
-              <strong>₹1,499</strong>
+              <strong>$150</strong>
 
               <button class="delete">
                 🗑
@@ -478,7 +504,7 @@
         <div class="summary-row">
 
           <span>Subtotal</span>
-          <span>₹3,797</span>
+          <span>$424</span>
 
         </div>
 
@@ -501,7 +527,7 @@
         <div class="summary-row total">
 
           <span>Total</span>
-          <span>₹3,797</span>
+          <span>$424</span>
 
         </div>
 
