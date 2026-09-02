@@ -386,3 +386,45 @@
  }
 
  /* login an signup css  ends  here */
+
+ /*collection drop down page css starts from here*/
+
+  .collection-dropdown {
+     position: relative;
+     cursor: pointer;
+ }
+
+ .collection-dropdown:hover .dropdown-menu {
+     display: block;
+ }
+
+ .dropdown-menu {
+     display: none;
+     position: absolute;
+     right: 0;
+     top: 30px;
+     background-color: rgb(179, 175, 175);
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+     border-radius: 15px;
+     width: 250px;
+     font-family: sans-serif;
+     border: 1px solid black;
+    
+ }
+
+ .dropdown-menu a {
+     display: block;
+     text-decoration: none;
+     color: black;
+     border: 1px solid black;
+     text-align: center;
+     background-color: rgb(179, 175, 175);
+     font-family: Arial;
+ }
+
+ .dropdown-menu a:hover {
+     background-color: black;
+     color: white;
+ }
+
+  /*collection drop down page css ends  here*/

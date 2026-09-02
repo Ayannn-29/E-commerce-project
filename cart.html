@@ -1,0 +1,808 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shopping Cart</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #222;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      width: 88%;
+      max-width: 1200px;
+      margin: 50px auto;
+    }
+
+    /* TITLE */
+    .cart-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-title h1 {
+      font-size: 36px;
+    }
+
+    .cart-title p {
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .continue {
+      color: #b5656b;
+      text-decoration: none;
+    }
+
+    /* CART LAYOUT */
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    /* CART BOX */
+    .cart-box {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .cart-header,
+    .cart-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .cart-header {
+      background: #fafafa;
+      font-size: 13px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .cart-item {
+      border-top: 1px solid #eee;
+    }
+
+    /* PRODUCT */
+    .product {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .product img {
+      width: 90px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 7px;
+      background: #f5f5f5;
+    }
+
+    .product-info h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .wishlist {
+      border: none;
+      background: none;
+      color: #b5656b;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    /* QUANTITY */
+    .quantity {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .quantity button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: white;
+      font-size: 18px;
+    }
+
+    .quantity span {
+      width: 30px;
+      text-align: center;
+    }
+
+    /* DELETE BUTTON */
+    .delete {
+      border: none;
+      background: none;
+      color: #777;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    /* COUPON */
+    .coupon {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .coupon input {
+      flex: 1;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .btn {
+      border: none;
+      background: #b5656b;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 5px;
+    }
+
+    /* ORDER SUMMARY */
+    .summary {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 25px;
+      height: fit-content;
+    }
+
+    .summary h2 {
+      margin-bottom: 25px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 18px 0;
+      color: #555;
+    }
+
+    .discount {
+      color: green;
+    }
+
+    .total {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .checkout {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background: #b5656b;
+      color: white;
+      font-size: 16px;
+    }
+
+    .buy {
+      width: 100%;
+      margin-top: 10px;
+      padding: 14px;
+      background: white;
+      border: 1px solid #b5656b;
+      color: #b5656b;
+      border-radius: 5px;
+    }
+
+    .payment {
+      text-align: center;
+      margin-top: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .benefit {
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .benefit h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .benefit p {
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 50px;
+      background: #292d34;
+      color: white;
+      padding: 50px 6% 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 40px;
+    }
+
+    footer h2 {
+      margin-bottom: 15px;
+    }
+
+    footer h2 span {
+      color: #d08086;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    footer p,
+    footer a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .newsletter input {
+      padding: 12px;
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+
+    .newsletter button {
+      border: none;
+      background: #b5656b;
+      color: white;
+      padding: 0 18px;
+    }
+
+    /* COPYRIGHT */
+    .copyright {
+      text-align: center;
+      color: #aaa;
+      border-top: 1px solid #444;
+      margin-top: 40px;
+      padding-top: 20px;
+      font-size: 13px;
+    }
+
+    /* TABLET */
+    @media (max-width: 800px) {
+
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-header {
+        display: none;
+      }
+
+      .cart-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 500px) {
+
+      .container {
+        width: 92%;
+      }
+
+      .cart-title {
+        display: block;
+      }
+
+      .cart-title h1 {
+        font-size: 28px;
+      }
+
+      .continue {
+        display: inline-block;
+        margin-top: 15px;
+      }
+
+      .product img {
+        width: 75px;
+        height: 85px;
+      }
+
+      .coupon {
+        flex-direction: column;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- CART TITLE -->
+    <div class="cart-title">
+
+      <div>
+        <h1>Shopping Cart</h1>
+
+        <p>3 Items in your cart</p>
+      </div>
+
+      <a href="#" class="continue">
+        ← Continue Shopping
+      </a>
+
+    </div>
+
+
+    <!-- CART + SUMMARY -->
+    <div class="cart-layout">
+
+      <!-- CART ITEMS -->
+      <section>
+
+        <div class="cart-box">
+
+          <!-- HEADER -->
+          <div class="cart-header">
+
+            <div>PRODUCT</div>
+            <div>PRICE</div>
+            <div>QUANTITY</div>
+            <div>TOTAL</div>
+
+          </div>
+
+
+          <!-- PRODUCT 1 -->
+          <div class="cart-item">
+
+            <div class="product">
+
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=300&q=80">
+
+              <div class="product-info">
+
+                <h3>Floral Cotton Dress</h3>
+
+                <p>
+                  Size: M | Color: Pink
+                </p>
+
+                <button class="wishlist">
+                  ♡ Move to Wishlist
+                </button>
+
+              </div>
+
+            </div>
+
+            <div>₹1,299</div>
+
+            <div>
+
+              <div class="quantity">
+                <button>−</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+
+            </div>
+
+            <div>
+
+              <strong>₹1,299</strong>
+
+              <button class="delete">
+                🗑
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 2 -->
+          <div class="cart-item">
+
+            <div class="product">
+
+              <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=300&q=80">
+
+              <div class="product-info">
+
+                <h3>Linen Slim Fit Shirt</h3>
+
+                <p>
+                  Size: L | Color: Green
+                </p>
+
+                <button class="wishlist">
+                  ♡ Move to Wishlist
+                </button>
+
+              </div>
+
+            </div>
+
+            <div>₹999</div>
+
+            <div>
+
+              <div class="quantity">
+                <button>−</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+
+            </div>
+
+            <div>
+
+              <strong>₹999</strong>
+
+              <button class="delete">
+                🗑
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 3 -->
+          <div class="cart-item">
+
+            <div class="product">
+
+              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=300&q=80">
+
+              <div class="product-info">
+
+                <h3>Classic Blue Jeans</h3>
+
+                <p>
+                  Size: 32 | Color: Blue
+                </p>
+
+                <button class="wishlist">
+                  ♡ Move to Wishlist
+                </button>
+
+              </div>
+
+            </div>
+
+            <div>₹1,499</div>
+
+            <div>
+
+              <div class="quantity">
+                <button>−</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+
+            </div>
+
+            <div>
+
+              <strong>₹1,499</strong>
+
+              <button class="delete">
+                🗑
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- COUPON -->
+        <div class="coupon">
+
+          <input
+            type="text"
+            placeholder="Enter coupon code"
+          >
+
+          <button class="btn">
+            Apply
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ORDER SUMMARY -->
+      <aside class="summary">
+
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+
+          <span>Subtotal</span>
+          <span>₹3,797</span>
+
+        </div>
+
+        <div class="summary-row">
+
+          <span>Discount</span>
+          <span class="discount">
+            −₹0
+          </span>
+
+        </div>
+
+        <div class="summary-row">
+
+          <span>Shipping</span>
+          <span>FREE</span>
+
+        </div>
+
+        <div class="summary-row total">
+
+          <span>Total</span>
+          <span>₹3,797</span>
+
+        </div>
+
+        <button class="checkout">
+          Proceed to Checkout
+        </button>
+
+        <button class="buy">
+          Buy Now
+        </button>
+
+        <div class="payment">
+
+          We Accept
+          <br><br>
+
+          💳 Visa &nbsp;
+          💳 Mastercard &nbsp;
+          UPI
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <!-- BENEFITS -->
+    <div class="benefits">
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          🛡️
+        </div>
+
+        <h3>Secure Checkout</h3>
+
+        <p>
+          Your information is safe with us
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          🚚
+        </div>
+
+        <h3>Free Shipping</h3>
+
+        <p>
+          On prepaid orders above ₹999
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          ↻
+        </div>
+
+        <h3>Easy Returns</h3>
+
+        <p>
+          15 days return policy
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          ☎
+        </div>
+
+        <h3>Customer Support</h3>
+
+        <p>
+          We're here to help
+        </p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <h2>
+          Style<span>Threads</span>
+        </h2>
+
+        <p>
+          Wear your style. Live your story.
+        </p>
+
+        <p>
+          ◎ &nbsp; f &nbsp; 𝕏 &nbsp; ◎
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Shop</h3>
+
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Kids</a>
+        <a href="#">New In</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Help</h3>
+
+        <a href="#">Track Order</a>
+        <a href="#">Returns</a>
+        <a href="#">Shipping</a>
+        <a href="#">FAQs</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Newsletter</h3>
+
+        <p>
+          Subscribe for new arrivals and offers.
+        </p>
+
+        <div class="newsletter">
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          >
+
+          <button>
+            Subscribe
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 StyleThreads.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
+```
